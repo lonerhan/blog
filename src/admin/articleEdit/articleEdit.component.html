@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title">{{title}}</h4>
+    </div>
+    <div class="card-block">
+      <form enctype="multipart/form-data" #creatForm="ngForm" class="row article-form">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="articleTitle"><span class="required">*</span>文章名称</label>
+            <input type="text" class="form-control" id="articleTitle" name="articleTitle" [(ngModel)]="article.title" autocomplete="off"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="articleabstract"><span class="required">*</span>文章梗概</label>
+            <textarea rows="5" class="form-control" id="articleabstract" name="articleabstract" [(ngModel)]="article.abstract" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="articlecontent"><span class="required">*</span>文章内容</label>
+            <ckeditor id="articlecontent" name="articlecontent" [(ngModel)]="article.content"  debounce="500" required></ckeditor>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-secondary" (click)="goBack()">返回</button>
+      <button class="btn btn-primary" (click)="addArticle()">保存</button>
+    </div>
+  </div>
+</div>
